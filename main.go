@@ -3,10 +3,14 @@ package main
 import (
     "net/http"
     "github.com/gin-gonic/gin"
+    "github.com/gin-contrib/cors"
 )
 
 func main() {
     router := gin.Default()
+
+    // Enable CORS for all origins
+    router.Use(cors.Default())
 
     // Health check route
     router.GET("/", func(c *gin.Context) {
